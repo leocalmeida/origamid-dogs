@@ -1,3 +1,4 @@
-Proxima aula 11 - useContext
-Criar um contexto
+Proxima aula 12 - Validar o TOKEN
+Será aplicada mais robustes ao projeto, com a valicao do TOKEN do localstorage para realizar o login e 
+navegaçoes automaticas quando o usuário estiver logado ou quando realizar o logoff
 
