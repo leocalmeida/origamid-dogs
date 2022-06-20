@@ -1,6 +1,3 @@
-Proxima aula 12 - Validar o TOKEN
-Será aplicada mais robustes ao projeto, 
-com a valicao do TOKEN do localstorage para realizar o login e 
-navegaçoes automaticas quando o usuário estiver logado ou 
-quando realizar o logoff
+Proxima aula 13 - Login Form
+Será aplicado alguns estilos na tela de Login Form
 
