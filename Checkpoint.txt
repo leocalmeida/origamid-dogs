@@ -1,5 +1,0 @@
-Proxima aula 16 - Hook useFetch
-Criacao de um hook para realizar os fetchs para que tenha acesso, no momento do fetch
-ao data, error e loading
-
-Revisar o React.useCallback na origamid
