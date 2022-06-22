@@ -33,8 +33,6 @@ const LoginForm = () => {
           <Button>Entrar</Button>
         )}
         <Error error={error} />
-
-        <Link to='/login/criar'>Cadastro</Link>
       </form>
       <Link to='/login/perdeu' className={styles.perdeu}>
         Perdeu a senha?
