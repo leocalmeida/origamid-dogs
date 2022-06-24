@@ -16,7 +16,6 @@ const TokenPost = () => {
     formData.append('nome', nome);
     formData.append('peso', peso);
     formData.append('idade', idade);
-    console.log(formData);
 
     fetch(`${URL}/api/photo`, {
       method: 'POST',
@@ -26,11 +25,9 @@ const TokenPost = () => {
       body: formData,
     })
       .then((response) => {
-        console.log(response);
         return response.json();
       })
       .then((json) => {
-        console.log(json);
         return json;
       });
   }
