@@ -3,6 +3,8 @@ import UserHeaderNav from './UserHeaderNav';
 import styles from './UserHeader.module.css';
 import { useLocation } from 'react-router-dom';
 
+// esse Header é para quando o usuário está logado.
+// ele é dinamico de acordo com a rota q o usuário está acessando
 const UserHeader = () => {
   const [pageTitle, setPageTitle] = React.useState('');
   const { pathname } = useLocation();

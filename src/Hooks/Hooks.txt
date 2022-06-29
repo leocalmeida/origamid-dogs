@@ -1,0 +1,5 @@
+Os Hooks são funções especiais do React que permitem controlarmos o 
+estado e o ciclo de vida de componentes funcionais.
+A criação de customHooks, é utilizada também para evitarmos a repetição de código
+
+Logo, quando eu precisar dessas logicas, eu importo a funcao que faz o que ja foi configurado para fazer  

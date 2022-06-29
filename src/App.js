@@ -8,14 +8,16 @@ import './App.css';
 import User from './Components/User/User';
 import ProtectedRoute from './Components/Helper/ProtectedRoute';
 
+// as rotas foram configuradas dentro do arquivo App.js
 function App() {
   return (
     <BrowserRouter>
       <UserStorage>
-        <Header />
+        <Header /> {/* Componente rederizado em todas as partes do site */}
         <Routes>
           <Route path='/' element={<Home />} />
-          <Route path='login/*' element={<Login />} />
+          <Route path='login/*' element={<Login />} />{' '}
+          {/* Página de login, o asterisco indica que há rotas login/alguma-coisa */}
           <Route
             path='conta/*'
             element={
@@ -24,8 +26,11 @@ function App() {
               </ProtectedRoute>
             }
           />
+          {/* Página de Conta, o asterisco indica que há rotas conta/alguma-coisa */}
+          {/* além disso, a rota é protegida, então depende do usuário estar logado para poder acessar essa página */}
         </Routes>
         <Footer />
+        {/* Componente rederizado em todas as partes do site */}
       </UserStorage>
     </BrowserRouter>
   );

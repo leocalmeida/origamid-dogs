@@ -1,4 +1,5 @@
 import React from 'react';
+// componente de erro reutilizável
 
 const Error = ({ error }) => {
   if (!error) {

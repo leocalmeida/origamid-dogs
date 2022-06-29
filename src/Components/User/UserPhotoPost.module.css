@@ -1,0 +1,26 @@
+.photoPost {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.file {
+  margin-bottom: 1rem;
+}
+
+/* macete de preview */
+.preview {
+  border-radius: 1rem;
+  background-size: cover;
+  background-position: center center;
+}
+/* configurando dessa forma vc dá o espaço necessário para que a foto
+preencha 100% da altura que a coluna da direita possui
+ */
+.preview::after {
+  content: '';
+  display: block;
+  height: 0px;
+  padding-bottom: 100%;
+}

@@ -1,5 +1,11 @@
+// Esse arquivo é um facilitador, o qual guarda a url de acesso em uma variável
+// dessa forma, basta importar a variavel em qualquer arquivo
 export const API_URL = 'https://dogsapi.origamid.dev/json';
 
+// solicitações json padronizadas de forma que seja fácil realizá-las quando necessário
+// reuso de código, assim nao é necessário digitar sempre as requisições
+
+// login no site baseado no na informaçao passada no body
 export function TOKEN_POST(body) {
   return {
     url: API_URL + '/jwt-auth/v1/token',
@@ -13,6 +19,7 @@ export function TOKEN_POST(body) {
   };
 }
 
+// validacao se o token é valido
 export function TOKEN_VALIDATE_POST(token) {
   return {
     url: API_URL + '/jwt-auth/v1/token/validate',
@@ -25,6 +32,7 @@ export function TOKEN_VALIDATE_POST(token) {
   };
 }
 
+// pega as informações do usuário baseado em seu token
 export function USER_GET(token) {
   return {
     url: API_URL + '/api/user',
@@ -37,6 +45,7 @@ export function USER_GET(token) {
   };
 }
 
+// gravar um novo usuário
 export function USER_POST(body) {
   return {
     url: API_URL + '/api/user',
@@ -46,6 +55,20 @@ export function USER_POST(body) {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(body),
+    },
+  };
+}
+
+// posta uma foto
+export function PHOTO_POST(formData, token) {
+  return {
+    url: API_URL + '/api/photo',
+    options: {
+      method: 'POST',
+      headers: {
+        Authorization: 'Bearer ' + token,
+      },
+      body: formData,
     },
   };
 }

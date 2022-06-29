@@ -1,3 +1,8 @@
+// poderia ser realizado um fetch onde fosse necessário, sempre que fosse preciso
+// porém para ter valores armarenados em estados reativos, como controle de erros
+// e também a reutilização de código, foi criado esse custom hook
+// evitando erros de digitação como o tratamento de requisições asincronas
+
 import React from 'react';
 
 const useFetch = () => {
@@ -5,6 +10,10 @@ const useFetch = () => {
   const [error, setError] = React.useState(null);
   const [loading, setLoading] = React.useState(false);
 
+  // baseada na explicação do Origamid
+  // Permite definirmos um callback e uma lista de dependências do callback.
+  // Esse callback só será recriado se essa
+  // lista de dependências for modificada, caso contrário ele não irá recriar o callback.
   const request = React.useCallback(async (url, options) => {
     let response;
     let json;
@@ -24,6 +33,7 @@ const useFetch = () => {
     }
   }, []);
 
+  // exportado os 3 estados reativos e a função de fetch reescrita
   return { data, error, loading, request };
 };
 

@@ -5,6 +5,8 @@ import Feed from '../Feed/Feed';
 import UserPhotoPost from './UserPhotoPost';
 import UserStats from './UserStats';
 
+// arquivo de rotas especificas
+// neste caso relacionado ao usuário e sua conta
 const User = () => {
   return (
     <section className='container'>

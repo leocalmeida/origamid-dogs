@@ -7,6 +7,8 @@ import LoginPasswordReset from './LoginPasswordReset';
 import { UserContext } from '../../UserContext';
 import styles from './Login.module.css';
 
+// arquivo de rotas especificas
+// neste caso relacionado aos login, criacao e recuperacao
 const Login = () => {
   const { login } = React.useContext(UserContext);
 

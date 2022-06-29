@@ -1,16 +1,25 @@
+// uso de contextos no React.
+// utilizado para disponibilizar uma informação em toda a aplicação
+// nesse caso, as informações referentes ao usuário
+
 import React from 'react';
 import { TOKEN_POST, TOKEN_VALIDATE_POST, USER_GET } from './api';
 import { useNavigate } from 'react-router-dom';
 
+// criação do contexto, essa informação que é importada nos arquivos para poder
+// utilizar o contexto e com isso ter informação
 export const UserContext = React.createContext();
 
 export const UserStorage = ({ children }) => {
+  // children é tudo que é filho de UserStorage
+
   const [data, setData] = React.useState(null); // dados do usuario
   const [login, setLogin] = React.useState(null); // verifica se o usuario ta logado
   const [loading, setLoading] = React.useState(false); // verifica se esta carregando
   const [error, setError] = React.useState(null); // tratamento de erros
   const navigate = useNavigate();
 
+  // coleta as informações do usuário
   async function getUser(token) {
     const { url, options } = USER_GET(token);
     const response = await fetch(url, options);
@@ -19,6 +28,7 @@ export const UserStorage = ({ children }) => {
     setLogin(true);
   }
 
+  // realiza o login do usuário
   async function userLogin(username, password) {
     try {
       setError(null);
@@ -37,6 +47,11 @@ export const UserStorage = ({ children }) => {
       setLoading(false);
     }
   }
+
+  // realiza o logout voltando os estados ao seus valores originais
+  // além disso, é utilizado o React.useCallback
+  // React.useCallback é responsável por controlar a renderização de um componente
+  // de forma que ele seja renderizado apenas uma vez
   const userLogout = React.useCallback(
     function () {
       setData(null);
@@ -76,6 +91,7 @@ export const UserStorage = ({ children }) => {
   }, [userLogout]);
 
   return (
+    // funções e valores que são exportadas no UserContext
     <UserContext.Provider
       value={{ userLogin, userLogout, data, login, loading, error }}
     >
