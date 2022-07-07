@@ -6,10 +6,12 @@ const Feed = () => {
   const [modalPhoto, setModalPhoto] = React.useState(null);
 
   return (
-    <section className='animeLeft'>
-      {modalPhoto && <FeedModal photo={modalPhoto} />}
+    <div>
+      {modalPhoto && (
+        <FeedModal photo={modalPhoto} setModalPhoto={setModalPhoto} />
+      )}
       <FeedPhotos setModalPhoto={setModalPhoto} />
-    </section>
+    </div>
   );
 };
 

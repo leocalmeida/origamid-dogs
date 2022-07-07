@@ -28,8 +28,7 @@
   color: white;
   font-size: 1rem;
   text-align: center;
-  display: flex;
-  opacity: 0;
+  display: none;
   justify-content: center;
   align-items: center;
 }
@@ -44,6 +43,5 @@
 }
 
 .photo:hover .visualization {
-  opacity: 1;
-  transition: 0.4s;
+  display: flex;
 }

@@ -72,7 +72,7 @@ export function PHOTO_POST(formData, token) {
     },
   };
 }
-
+// realiza o fetch que buscas as photos a serem apresentadas no feed
 export function PHOTOS_GET({ page, total, usuario }) {
   return {
     url: `${API_URL}/api/photo/?_page=${page}&_total=${total}&_user=${usuario}`,
@@ -83,6 +83,7 @@ export function PHOTOS_GET({ page, total, usuario }) {
   };
 }
 
+// busca uma foto em especifico, baseado em seu id
 export function PHOTO_GET(id) {
   return {
     url: `${API_URL}/api/photo/${id}`,

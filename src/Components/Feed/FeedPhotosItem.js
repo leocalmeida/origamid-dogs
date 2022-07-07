@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './FeedPhotosItem.module.css';
 
+// componente foto, que mostra a foto e tem um hover q mostra os acessos
 const FeedPhotosItem = ({ photo, setModalPhoto }) => {
   function handleClick() {
     setModalPhoto(photo);

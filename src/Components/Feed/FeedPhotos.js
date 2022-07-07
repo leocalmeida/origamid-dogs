@@ -6,6 +6,9 @@ import Error from '../Helper/Error';
 import Loading from '../Helper/Loading';
 import styles from './FeedPhotos.module.css';
 
+// objeto responsável por realizar o fetch que buscas as photos a serem apresentadas no feed
+// alem disso, o feed é composto por várias fotos que sao componentes independentes
+// declarados no arquivo FeedPhotoItems.js
 const FeedPhotos = ({ setModalPhoto }) => {
   const { data, error, loading, request } = useFetch();
 
@@ -13,7 +16,6 @@ const FeedPhotos = ({ setModalPhoto }) => {
     async function fetchPhotos() {
       const { url, option } = PHOTOS_GET({ page: 1, total: 100, user: 0 });
       const { json } = await request(url, option);
-      console.log(json);
     }
     fetchPhotos();
   }, [request]);
