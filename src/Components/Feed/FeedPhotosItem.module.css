@@ -18,7 +18,7 @@
   transition: 0.4s;
 }
 
-.photo img {
+.photo > div {
   grid-area: 1/1;
 }
 

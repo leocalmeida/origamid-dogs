@@ -9,16 +9,20 @@ import styles from './FeedPhotos.module.css';
 // objeto responsável por realizar o fetch que buscas as photos a serem apresentadas no feed
 // alem disso, o feed é composto por várias fotos que sao componentes independentes
 // declarados no arquivo FeedPhotoItems.js
-const FeedPhotos = ({ setModalPhoto }) => {
+const FeedPhotos = ({ page, user, setModalPhoto, setInfinite }) => {
   const { data, error, loading, request } = useFetch();
 
   React.useEffect(() => {
     async function fetchPhotos() {
-      const { url, option } = PHOTOS_GET({ page: 1, total: 100, user: 0 });
-      const { json } = await request(url, option);
+      const total = 3;
+      const { url, option } = PHOTOS_GET({ page, total, user });
+      const { response, json } = await request(url, option);
+      if (response.ok && json.length < total) {
+        setInfinite(false);
+      }
     }
     fetchPhotos();
-  }, [request]);
+  }, [request, user, page, setInfinite]);
 
   if (error) return <Error error={error} />;
   if (loading) return <Loading />;
